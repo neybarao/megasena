@@ -56,11 +56,11 @@ export function Dashboard({ draws, metadata, windowSize, setWindowSize }: {
           <div className="chart-wrap" role="img" aria-label="Histograma da soma das dezenas">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={aggregate.sumHistogram} margin={{ top: 8, right: 4, bottom: 0, left: -24 }}>
-                <CartesianGrid vertical={false} stroke="#ddd9d0" />
+                <CartesianGrid vertical={false} stroke="#dfd2c3" />
                 <XAxis dataKey="label" tick={{ fontSize: 10 }} interval={2} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10 }} axisLine={false} tickLine={false} />
-                <Tooltip cursor={{ fill: '#ece9e1' }} contentStyle={{ borderRadius: 6, borderColor: '#d4d0c7' }} />
-                <Bar dataKey="value" name="Concursos" fill="#276b53" radius={[3, 3, 0, 0]} />
+                <Tooltip cursor={{ fill: '#f1e4d8' }} contentStyle={{ borderRadius: 6, borderColor: '#dfd2c3' }} />
+                <Bar dataKey="value" name="Concursos" fill="#d86f18" radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

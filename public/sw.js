@@ -1,12 +1,12 @@
-const CACHE = 'megasena-v1'
+const CACHE = 'megasena-v3'
 const ROOT = self.location.pathname.replace(/sw\.js$/, '')
 const CORE = [
   ROOT,
   `${ROOT}manifest.webmanifest`,
   `${ROOT}data/results.json`,
   `${ROOT}data/metadata.json`,
-  `${ROOT}icons/icon-192-v1.png`,
-  `${ROOT}icons/icon-512-v1.png`,
+  `${ROOT}icons/icon-192-v3.png`,
+  `${ROOT}icons/icon-512-v3.png`,
 ]
 
 self.addEventListener('install', (event) => {
