@@ -1,0 +1,16 @@
+{
+  "name": "Mega-Sena - Analise",
+  "short_name": "Mega-Sena",
+  "description": "Analise estatistica local dos resultados da Mega-Sena.",
+  "theme_color": "#eef6ee",
+  "background_color": "#eef6ee",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/megasena/",
+  "scope": "/megasena/",
+  "icons": [
+    { "src": "icons/icon-192-v1.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512-v1.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512-v1.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

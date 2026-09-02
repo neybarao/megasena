@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+*.local
+*.tsbuildinfo
+public/data/megasena.xlsx
+public/data/results.json
+public/data/metadata.json
