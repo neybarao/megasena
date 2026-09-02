@@ -11,6 +11,7 @@ const resultsPath = resolve(root, 'public/data/results.json')
 const metadataPath = resolve(root, 'public/data/metadata.json')
 
 const parser = new XMLParser({ ignoreAttributes: false, removeNSPrefix: true, parseTagValue: false, trimValues: false })
+const COLUMN_NAMES = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index))
 
 function fail(message) {
   throw new Error(`XLSX da Mega-Sena invalido: ${message}`)
@@ -67,7 +68,7 @@ async function readWorkbook() {
   const parsed = parser.parse(strFromU8(sheetXml))
   return asArray(parsed?.worksheet?.sheetData?.row).map((row) => {
     const values = new Map()
-    asArray(row.c).forEach((cell) => values.set(columnName(cell?.['@_r']), cellValue(cell, sharedStrings)))
+    asArray(row.c).forEach((cell, index) => values.set(columnName(cell?.['@_r']) || COLUMN_NAMES[index], cellValue(cell, sharedStrings)))
     return values
   })
 }
