@@ -217,3 +217,16 @@ select, input { min-height: 40px; padding: 8px 11px; border: 1px solid var(--lin
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+html { overscroll-behavior-y: none; }
+.refresh-surface { min-height: 100dvh; position: relative; }
+.refresh-indicator { position: fixed; top: max(10px, env(safe-area-inset-top)); left: 50%; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); color: var(--accent); font-size: 13px; white-space: nowrap; pointer-events: none; transition: opacity .18s ease-out; }
+.refresh-indicator svg { transition: transform .18s ease-out; }
+.refresh-button { position: absolute; top: 84px; right: max(24px, calc((100% - 1180px) / 2)); z-index: 10; display: flex; align-items: center; gap: 6px; border: 0; padding: 8px; background: transparent; color: var(--accent); cursor: pointer; font-size: 12px; min-height: 40px; }
+.refresh-button:hover { background: var(--accent-soft); border-radius: 6px; }
+.refresh-button:disabled { cursor: wait; opacity: .65; }
+.refresh-error { position: relative; z-index: 30; margin: 0; padding: 12px 24px; background: var(--surface); color: var(--danger); font-size: 13px; }
+.is-refreshing svg { animation: refresh-spin 1s linear infinite; }
+@keyframes refresh-spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) { .refresh-button { top: 76px; right: 12px; } .refresh-button span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .refresh-indicator, .refresh-indicator svg { transition: none; } .is-refreshing svg { animation: none; } }

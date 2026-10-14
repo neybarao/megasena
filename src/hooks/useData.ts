@@ -14,11 +14,11 @@ export function useData(): DataState {
     const base = import.meta.env.BASE_URL
 
     Promise.all([
-      fetch(`${base}data/results.json`, { signal: controller.signal }).then((response) => {
+      fetch(`${base}data/results.json`, { signal: controller.signal, cache: 'no-cache' }).then((response) => {
         if (!response.ok) throw new Error('Não foi possível carregar os concursos.')
         return response.json() as Promise<Draw[]>
       }),
-      fetch(`${base}data/metadata.json`, { signal: controller.signal }).then((response) => {
+      fetch(`${base}data/metadata.json`, { signal: controller.signal, cache: 'no-cache' }).then((response) => {
         if (!response.ok) throw new Error('Não foi possível carregar os metadados da base.')
         return response.json() as Promise<Metadata>
       }),

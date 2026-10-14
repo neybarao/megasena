@@ -13,6 +13,7 @@ Aplicacao web estatica, mobile-first e instalavel como PWA para analisar histori
 - Gerador de cinco jogos distintos com criterios configuraveis no codigo: frequencia, atraso, paridade, baixas/altas, soma, faixas, sequencias e repeticao.
 - Copia individual de cada jogo e copia de todos os jogos.
 - Backtest que corta a base antes do concurso alvo e aceita semente deterministica.
+- Gesto de puxar para atualizar no topo da pagina e botao Atualizar para buscar a versao publicada mais recente.
 - PWA com manifesto, icones versionados, service worker e cache offline apos o primeiro acesso.
 
 ## Dados
@@ -27,7 +28,7 @@ Coloque o XLSX oficial em:
 public/data/megasena.xlsx
 ```
 
-O arquivo anexado nesta conversa nao ficou disponivel no workspace; por isso o repositorio esta preparado para receber `megasena.xlsx`, mas nao inclui dados oficiais gerados.
+O repositorio inclui a planilha oficial. Os arquivos JSON usados pela aplicacao sao gerados e validados a partir dela durante o build.
 
 ## Atualizacao Manual
 

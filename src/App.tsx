@@ -1,6 +1,7 @@
 import { ChartBar, ClockCounterClockwise, DotsThree, Flask, GridFour, Sparkle, X } from '@phosphor-icons/react'
 import { useState } from 'react'
 import type { WindowSize } from './components/WindowControl'
+import { PullToRefresh } from './components/PullToRefresh'
 import { useData } from './hooks/useData'
 import { Backtest } from './pages/Backtest'
 import { Dashboard } from './pages/Dashboard'
@@ -28,7 +29,7 @@ function App() {
   const updatedAt = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(data.metadata.sourceUpdatedAt))
 
   return (
-    <div className="app-shell">
+    <PullToRefresh><div className="app-shell">
       <header className="topbar">
         <button className="brand" type="button" onClick={() => setPage('dashboard')} aria-label="Ir para o painel">
           <img className="brand-mark" src={`${import.meta.env.BASE_URL}icons/icon-192-v4.png`} alt="" />
@@ -52,7 +53,7 @@ function App() {
       </nav>
 
       {showInfo && <div className="modal-backdrop" role="presentation" onMouseDown={() => setShowInfo(false)}><section className="info-sheet" role="dialog" aria-modal="true" aria-labelledby="info-title" onMouseDown={(event) => event.stopPropagation()}><button className="icon-button info-sheet__close" type="button" onClick={() => setShowInfo(false)} aria-label="Fechar"><X size={22} /></button><ClockCounterClockwise size={28} /><p className="eyebrow">Base de dados</p><h2 id="info-title">Atualizacao e origem</h2><dl><div><dt>Ultimo concurso</dt><dd>{data.metadata.latestContest} - {data.metadata.latestDrawDate}</dd></div><div><dt>Concursos carregados</dt><dd>{data.metadata.contestCount.toLocaleString('pt-BR')}</dd></div><div><dt>XLSX atualizado</dt><dd>{updatedAt}</dd></div></dl><a href={data.metadata.source} target="_blank" rel="noreferrer">Abrir pagina oficial da CAIXA</a><p className="fine-print">A aplicacao funciona sem API. Os calculos usam somente o arquivo incluido nesta versao.</p></section></div>}
-    </div>
+    </div></PullToRefresh>
   )
 }
 
